@@ -50,38 +50,34 @@ Because we care about the affective dimensions, I've marked every point with an 
 
 ## Predicting Affective Dimensions
 
-Now that we're convinced the embeddings contain some amount of the signal we want, we need a mechanism to extract it. 
+Now that we're convinced the embeddings contain some amount of the signal we want, the next step is to build a model to extract it. The main roadblock we'll have to work around is our limited amount of data -- remember, we only have 28 data points to learn from -- and the huge amount of information available in each embedding. Even a simple linear model is likely to overfit to our dataset, which won't serve us well when we want to get the valence and arousal of other concepts.
 
-Now that we've convinced ourself that the signal is there, we just have to find a way to extract it. We'll try the simplest thing first, which is a linear model. Turns out we can do quite well with a linear model. One big problems is the DoF -- a naive linear model would have 1,536 parameters to explain 28 data points. That's too flexible, we'll end up overfitting.
+Dimensionality reduction won't help us much. Our t-SNE reduction to two dimensions can't handle new data points (we'd have to re-learn the manifold so that it also includes the new data). And embedding models take good advantage of all available dimensions, so tools like principle component analysis (PCA) won't reduce the dimensionality without throwing away a huge amount of information.
 
-We could reduce the dimensionality of the data like we did with t-SNE. Unfortunately, our implementaiton doesn't let us project _new_ words, so we'd just be learning things baout the 28 data points we already have. Other standard tools like principle component analysis (PCA) reduce the dimensionality by finding redundant components of the embedding, but in my experience the information in these embeddings are pretty well distributed.
+Instead we'll fight over-fitting with _regularization_: we add constraints to a simple linear model so that it isn't flexible enough to overfit. For linear models, the standard regularization strategies are Lasso and Ridge. But Lasso regularization tries to make as many parameters 0 as possible, so we shouldn't expect it to take good advantage of how embeddings "spread out" their information.
 
-Another option is _regularization_ -- you constrain the linear model so that it isn't as flexible and shouldn't overfit. Two common regularization techniques are Lasso -- which tries to make most of the parameters 0 -- and Ridge -- which tries to keep the parameters small. Since embeddings widely distribute their content, we'll stick with Ridge.
+That leaves Ridge. I trained independent Ridge models to predict valence and arousal from word embeddings. The models fit well but not perfectly (valence R squared was 0.93, arousal R squared was 0.89), and I've plotted the predicted valence/arousal of Russell's 28 affects below. Click any of the data points to see where the affect was originally on the circumplex.
 
 <RIDGE>
 
-I trained two Ridge regression models -- one for valence, one for arousal. They're supposed to be independent. We do okay on the 28 data points, although valence does considerably better than arousal. Click on any data point to see where the original was.
+Since the two models are independent and we're not _trying_ to constrain predictions to be on the perimeter, some affects are inside the circle and some are outside. This might be a mistake! But I don't know how significant it is: the circumplex model assumes valence and arousal are correlated, but the relation is variable ([Kuppens et al. 2013](https://pubmed.ncbi.nlm.nih.gov/23231533/)) and might depend on cultural contexts ([Yik et al. 2023](https://pubmed.ncbi.nlm.nih.gov/35446055/)).
 
-## Applying what we've learned
+## Out of Domain
 
-So we have a model that poorly tells us what we already knew. The fun of learning these is that we now have a pipeline -- text-embedding-3-small -> Ridge models -- that can be applied to _any_ bit of text.
-
-Here's a bunch more affects taken from the Hoffman Institute. They're categorized roughly at the level of Russell's affects, but are otherwise quite a bit more nuanced. If we apply our same pipeline as before we end up with:
+Normally, to test the quality of a model we would evaluate its performance on a set of data it hasn't seen. Unfortunately I only have quantitative data on the 28 affects from Russell's 1980 paper, so we'll have to rely on a qualitative analysis. Here's what happens when we apply the two Ridge models to a new set of affects:
 
 <HOFFMAN>
 
-Click the groups on the right to focus and hover over points to see more information.
+These affects are given in [a worksheet](https://www.hoffmaninstitute.org/wp-content/uploads/Practices-FeelingsSensations.pdf) from the Hoffman Institute. I can't speak to the efficacy of the Hoffman process, but the categories and nuance of individual affects give us multiple scales by which to explore the data. Click any of the categories in the legend to filter the dataset.
 
-There's a lot more in the center than I might expect. That might be because the affects are actually neutral in both, or that we just don't have a strong signal for that word. Since the circumplex is really just talking about relative dimensions I think it's probably fine.
+There are no objective measurements of correctness we can apply here. I encourage you to explore the dataset and see the quality of the relative valence and arousal values for yourself. My sense is that the categories are placed roughly correctly within the circumplex, but it's easy to find pairs whose relative position is hard to justify.
 
-Our model clearly isn't _that_ good, but it seems to get broad trends. I don't have any ground truth for these words, so we can't compute any objective metrics of success, but feel free to poke around and see what you think for yourself.
+## Takeaways
 
-If we're feeling spciy we can even apply this model to things that aren't affects.
+Our analysis is limited by a lack of data, but there is clearly some signal about the affective dimensions in embeddings from OpenAI's `text-embedding-3-small` model. The R squared scores and casual analysis of the Hoffman Institute affects suggest valence is a stronger signal than arousal. That may just be noise, but it might also be indicative of some structure in English where synonyms have less variable valence than arousal. Without more data we can't easily confirm that hypothesis.
 
-## COnclusion
+We might also have more success with different embedding strategies. For this experiment I embedded affect words directly and without any other context, but we might also embed a definition or example usage or bit of prose that captures what it means to _feel_ that affect. And if we don't limit ourselves to text and use multi-modal embeddings we might get even stronger signals: [Cowen and Keltner 2017](https://www.pnas.org/doi/10.1073/pnas.1702247114) found a high-dimensional emotional structure in self-reported responses to videos (you can explore the data [here](https://s3-us-west-1.amazonaws.com/emogifs/map.html#modal)).
 
-Not much data, but there's clearly some signal. Valence seems better captured than arousal -- I feel like that makes sense, it's a more readily available and consistent definition. Certianly more sophisticated techniques could be applied (PROBING), but we need way more data.
+Finally, if we wanted to move beyond embeddings and had compute to spare, we could also apply modern "mind mapping" techniques that look at neuron activation patterns and attempt to map them to concepts ([OpenAI 2024](https://openai.com/index/extracting-concepts-from-gpt-4/), [Anthropic 2024](https://www.anthropic.com/news/mapping-mind-language-model)). It's likely that some of the activation patterns correspond to our affective dimensions.
 
-More to be done with embeddings. This was just words, but we could jointly encode definitions or poetry or brain scans and maybe get a better sense of what it means to experience these affects.
-
-Concept extraction -- [OpenAI 2024](https://openai.com/index/extracting-concepts-from-gpt-4/), [Anthropic 2024](https://www.anthropic.com/news/mapping-mind-language-model)
+If you want to run these experiments for yourself, the notebook is available [here](https://github.com/csmith49/experiments/tree/e231189ff0d22353a1b55f4445c206c3b9adb909/circumplex).
