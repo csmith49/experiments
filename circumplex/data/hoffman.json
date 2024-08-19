@@ -1,0 +1,305 @@
+{
+    "dataset": "Hoffman Institute",
+    "description": "A collection of emotion words from the Hoffman Institute, grouped by broad categories.",
+    "source": {
+        "year": 2013,
+        "accessed": 2024,
+        "url": "https://www.hoffmaninstitute.org/wp-content/uploads/Practices-FeelingsSensations.pdf"
+    },
+    "categories": [
+        {
+            "category": "Accepting/Open",
+            "entries": [
+                "Calm",
+                "Centered",
+                "Content",
+                "Fulfilled",
+                "Patient",
+                "Peaceful",
+                "Present",
+                "Relaxed",
+                "Serene",
+                "Trusting"
+            ]
+        },
+        {
+            "category": "Aliveness/Joy",
+            "entries": [
+                "Amazed",
+                "Awe",
+                "Bliss",
+                "Delighted",
+                "Eager",
+                "Ecstatic",
+                "Enchanted",
+                "Energized",
+                "Engaged",
+                "Enthusiastic",
+                "Excited",
+                "Free",
+                "Happy",
+                "Inspired",
+                "Invigorated",
+                "Lively",
+                "Passionate",
+                "Playful",
+                "Radiant",
+                "Refreshed",
+                "Rejuvenated",
+                "Renewed",
+                "Satisfied",
+                "Thrilled",
+                "Vibrant"
+            ]
+        },
+        {
+            "category": "Angry/Annoyed",
+            "entries": [
+                "Agitated",
+                "Aggravated",
+                "Bitter",
+                "Contempt",
+                "Cynical",
+                "Disdain",
+                "Disgruntled",
+                "Disturbed",
+                "Edgy",
+                "Exasperated",
+                "Frustrated",
+                "Furious",
+                "Grouchy",
+                "Hostile",
+                "Impatient",
+                "Irritated",
+                "Irate",
+                "Moody",
+                "On Edge",
+                "Outraged",
+                "Pissed",
+                "Resentful",
+                "Upset",
+                "Vindictive"
+            ]
+        },
+        {
+            "category": "Courageous/Powerful",
+            "entries": [
+                "Adventurous",
+                "Brave",
+                "Capable",
+                "Confident",
+                "Daring",
+                "Determined",
+                "Free",
+                "Grounded",
+                "Proud",
+                "Strong",
+                "Worthy",
+                "Valiant"
+            ]
+        },
+        {
+            "category": "Connected/Loving",
+            "entries": [
+                "Accepting",
+                "Affectionate",
+                "Caring",
+                "Compassion",
+                "Empathy",
+                "Fulfilled",
+                "Present",
+                "Safe",
+                "Warm",
+                "Worthy"
+            ]
+        },
+        {
+            "category": "Curious",
+            "entries": [
+                "Engaged",
+                "Exploring",
+                "Fascinated",
+                "Interested",
+                "Intrigued",
+                "Involved",
+                "Stimulated"
+            ]
+        },
+        {
+            "category": "Despair/Sad",
+            "entries": [
+                "Anguish",
+                "Depressed",
+                "Despondent",
+                "Disappointed",
+                "Discouraged",
+                "Forlorn",
+                "Gloomy",
+                "Grief",
+                "Heartbroken",
+                "Hopeless",
+                "Lonely",
+                "Longing",
+                "Melancholy",
+                "Sorrow",
+                "Teary",
+                "Unhappy",
+                "Upset",
+                "Weary",
+                "Yearning"
+            ]
+        },
+        {
+            "category": "Disconnected/Numb",
+            "entries": [
+                "Aloof",
+                "Bored",
+                "Confused",
+                "Distant",
+                "Empty",
+                "Indifferent",
+                "Isolated",
+                "Lethargic",
+                "Listless",
+                "Removed",
+                "Resistant",
+                "Shut Down",
+                "Uneasy",
+                "Withdrawn"
+            ]
+        },
+        {
+            "category": "Embarrassed/Shame",
+            "entries": [
+                "Ashamed",
+                "Humiliated",
+                "Inhibited",
+                "Mortified",
+                "Self-Conscious",
+                "Useless",
+                "Weak",
+                "Worthless"
+            ]
+        },
+        {
+            "category": "Fear",
+            "entries": [
+                "Afraid",
+                "Anxious",
+                "Apprehensive",
+                "Frightened",
+                "Hesitant",
+                "Nervous",
+                "Panic",
+                "Paralyzed",
+                "Scared",
+                "Terrified",
+                "Worried"
+            ]
+        },
+        {
+            "category": "Fragile",
+            "entries": [
+                "Helpless",
+                "Sensitive"
+            ]
+        },
+        {
+            "category": "Grateful",
+            "entries": [
+                "Appreciative",
+                "Blessed",
+                "Delighted",
+                "Fortunate",
+                "Grace",
+                "Humbled",
+                "Lucky",
+                "Moved",
+                "Thankful",
+                "Touched"
+            ]
+        },
+        {
+            "category": "Guilt",
+            "entries": [
+                "Regret",
+                "Remorseful",
+                "Sorry"
+            ]
+        },
+        {
+            "category": "Hopeful",
+            "entries": [
+                "Encouraged",
+                "Expectant",
+                "Optimistic",
+                "Trusting"
+            ]
+        },
+        {
+            "category": "Powerless",
+            "entries": [
+                "Impotent",
+                "Incapable",
+                "Resigned",
+                "Trapped",
+                "Victim"
+            ]
+        },
+        {
+            "category": "Tender",
+            "entries": [
+                "Calm",
+                "Caring",
+                "Loving",
+                "Reflective",
+                "Self-Loving",
+                "Serene",
+                "Vulnerable",
+                "Warm"
+            ]
+        },
+        {
+            "category": "Stressed/Tense",
+            "entries": [
+                "Anxious",
+                "Burned Out",
+                "Cranky",
+                "Depleted",
+                "Edgy",
+                "Exhausted",
+                "Frazzled",
+                "Overwhelm",
+                "Rattled",
+                "Rejecting",
+                "Restless",
+                "Shaken",
+                "Tight",
+                "Weary",
+                "Worn Out"
+            ]
+        },
+        {
+            "category": "Unsettled/Doubt",
+            "entries": [
+                "Apprehensive",
+                "Concerned",
+                "Dissatisfied",
+                "Disturbed",
+                "Grouchy",
+                "Hesitant",
+                "Inhibited",
+                "Perplexed",
+                "Questioning",
+                "Rejecting",
+                "Reluctant",
+                "Shocked",
+                "Skeptical",
+                "Suspicious",
+                "Ungrounded",
+                "Unsure",
+                "Worried"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "description": "Radial coordinates of 28 affect words. Two distinct sources of data are given -- the first is taken from data given directly in the text, while the second is manually measured from the diagram in Figure 2 of the source publication.",
+    "source": {
+        "title": "A Circumplex Model of Affect",
+        "author": "James Russel",
+        "year": "1980",
+        "venue": "Journal of Personality and Social Psychology",
+        "DOI": "10.1037/h0077714"
+    },
+    "data": {
+        "text": {
+            "Happy": 7.8,
+            "Delighted": 24.9,
+            "Excited": 48.6,
+            "Astonished": 69.8,
+            "Aroused": 73.8,
+            "Tense": 92.8,
+            "Alarmed": 96.5,
+            "Miserable": 188.7,
+            "Sad": 207.5,
+            "Droopy": 256.6,
+            "Tired": 267.7,
+            "Sleepy": 271.9,
+            "Calm": 316.2,
+            "Serene": 328.6,
+            "Pleased": 353.2
+        },
+        "figure": {
+            "Happy": 7.6,
+            "Delighted": 24.9,
+            "Excited": 48.9,
+            "Astonished": 68.6,
+            "Aroused": 72.8,
+            "Tense": 91.7,
+            "Alarmed": 95.0,
+            "Angry": 98.8,
+            "Afraid": 116.7,
+            "Annoyed": 123.0,
+            "Distressed": 137.8,
+            "Frustrated": 141.2,
+            "Miserable": 189.0,
+            "Sad": 207.9,
+            "Gloomy": 209.5,
+            "Depressed": 211.2,
+            "Bored": 241.9,
+            "Droopy": 256.2,
+            "Tired": 267.9,
+            "Sleepy": 272.0,
+            "Calm": 315.3,
+            "Relaxed": 316.8,
+            "Satisfied": 318.9,
+            "At Ease": 320.2,
+            "Content": 322.8,
+            "Serene": 328.2,
+            "Glad": 349.3,
+            "Pleased": 352.7
+        }
+    }
+}
